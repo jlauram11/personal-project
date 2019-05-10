@@ -1,0 +1,1 @@
+SELECT question FROM questionnaire;

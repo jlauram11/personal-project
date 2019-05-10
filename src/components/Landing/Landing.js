@@ -1,10 +1,14 @@
-import React, { Compoment } from 'react';
+import React, { Component } from 'react';
+import Login from '../Login/Login';
+import Join from '../Join/Join';
 
-class Landing extends Compoment {
+class Landing extends Component {
     render () {
         return (
             <div>
-                <p>Landing</p>
+                <p>Hello World!</p>
+                <Login/>
+                <Join/>
             </div>
         )
     }
