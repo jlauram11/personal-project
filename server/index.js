@@ -1,5 +1,5 @@
 const express = require('express');
-const expressSession = require('express-session');
+// const expressSession = require('express-session');
 const massive = require('massive');
 const passport = require('passport');
 const passportLocal = require('passport-local');
@@ -14,9 +14,14 @@ require('dotenv').config({path: __dirname + `/.env`}); // Adds to `process.env`
 
 const app = express();
 
-massive(process.env.DB_CONNECTION_STRING, {scripts: __dirname + '/db'})
-    .then(dbInstance => app.set('db', dbInstance))
-    .catch(err => console.log(err))
+const {
+    DB_CONNECTION_STRING
+} = process.env;
+
+massive(DB_CONNECTION_STRING, {scripts: __dirname + '/db'})
+    .then(dbInstance => {
+        app.set('db', dbInstance)
+    }).catch((err) => console.log(err));
 
 passport.use("login", new passportLocal.Strategy(( username, password, done ) => {
     app.get('db').users.find({username})
@@ -97,12 +102,15 @@ passport.deserializeUser((user, done) => {
 app.use(cors());
 app.use(bodyParser.json());
 
+//stupid questionaire questions:
+
+
 app.post(`/auth/login`, passport.authenticate("login"), (req, res) => {
     //send successful response including the user
 })
 app.post(`/auth/register`, (req, res) => {
     //send successful response including the user
 })
-app.get(`/api/characters`, controllers.getQuestions);
+app.get(`/api/quiz`, controllers.getQuestions);
 
 app.listen(8012, () => console.log('Server is listening on port 8012'))

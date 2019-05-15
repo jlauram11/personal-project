@@ -1,10 +1,12 @@
 import React, { Component } from 'react';
+import Nav from '../Nav/Nav';
 
 class Characters extends Component {
     render () {
         return (
             <div>
-                <p>Characters</p>
+                <Nav/>
+                <h1>Characters</h1>
             </div>
         )
     }

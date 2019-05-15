@@ -1,19 +1,14 @@
 import React, { Component } from 'react';
-import Account from '../Account/Account';
-import Characters from '../Characters/Characters';
-import NameGenerator from '../NameGenerator/NameGenerator';
-import Questionnaire from '../Questionnaire/Questionnaire';
-import Traitmap from '../TraitMap/TraitMap';
 
 class Nav extends Component {
     render () {
         return (
             <div>
-                <Account/>
-                <Characters/>
-                <Traitmap/>
-                <Questionnaire/>
-                <NameGenerator/>
+                <span> Account </span>
+                <span> Characters </span>
+                <span> Trait Map </span>
+                <span> Questionnaire </span>
+                <span> Name Generator </span>
             </div>
         )
     }

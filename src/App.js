@@ -10,10 +10,9 @@ class App extends Component {
     return (
     <HashRouter>
         <div className="App">
-          <p>HELLO WORLD</p>
           <Routes/>
         </div>
-      </HashRouter>   
+    </HashRouter>   
   );
 }
 }
